@@ -18,8 +18,9 @@ export default defineConfig({
 		poolOptions: {
 			useAtomics: true,
 		},
+		environment: 'happy-dom',
 		browser: {
-			enabled: true,
+			enabled: false,
 			name: "chromium",
 			headless: true,
 			provider: "playwright",
