@@ -8,19 +8,22 @@
     "start": "next start",
     "lint": "next lint",
     "cosmos": "cosmos --expose-imports",
-    "cosmos-export": "cosmos-export --expose-imports"
+    "cosmos-export": "cosmos-export --expose-imports",
+    "test": "vitest"
   },
   "dependencies": {
+    "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.1",
     "react-cosmos": "^6.1.1",
     "react-cosmos-next": "^6.1.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^1.6.0"
   }
 }
