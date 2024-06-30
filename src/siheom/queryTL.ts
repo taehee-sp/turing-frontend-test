@@ -146,7 +146,10 @@ export function createQueryTL(getBaseElement = () => document.body) {
                         try {
                             await base()
                                 .findByRole(role, { name })
-                                .then(($el) => userEvent.type($el, text, options));
+                                .then(async ($el) => {
+                                    await userEvent.clear($el);
+                                    await userEvent.type($el, text, options)
+                                });
                         } catch (error) {
                             return swapStackAsync(fakeError, error);
                         }
