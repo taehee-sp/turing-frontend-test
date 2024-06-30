@@ -1,5 +1,9 @@
 import { within } from "@testing-library/dom";
-import userEvent from "@testing-library/user-event";
+import userEvent from '@testing-library/user-event';
+
+// https://main.vitest.dev/guide/browser#context
+// import { userEvent } from '@vitest/browser/context';
+
 function safeFromEntries<K extends PropertyKey, V>(entries: [K, V][]) {
 	return Object.fromEntries(entries) as {
 		[k in K]: V;
@@ -256,7 +260,10 @@ export function createQueryTL(getBaseElement = () => document.body) {
 					return find().then(($el) => userEvent.click($el, options));
 				},
 				async fill(text, options) {
-					return find().then(($el) => userEvent.type($el, text, options));
+					return find().then(async ($el) => {
+						await userEvent.clear($el);
+						await userEvent.type($el, text, options);
+					});
 				},
 				async clear() {
 					return find().then(($el) => userEvent.clear($el));
