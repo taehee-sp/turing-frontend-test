@@ -18,7 +18,8 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./*"]
+			"@/*": ["./app/*"],
+			"styled-system/*": ["./styled-system/*"]
 		},
 		"types": ["@vitest/browser/providers/playwright"]
 	},

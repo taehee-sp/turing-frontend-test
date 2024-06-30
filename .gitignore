@@ -35,3 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 cosmos.imports.ts
+
+## Panda
+styled-system
+styled-system-studio

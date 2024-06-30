@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@pandacss/dev": "^0.41.0",
     "@testing-library/dom": "^10.2.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
