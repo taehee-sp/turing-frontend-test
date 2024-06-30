@@ -1,3 +1,4 @@
+"use client";
 import { MemberCreateForm } from "./MemberCreateForm";
 
 export default {
