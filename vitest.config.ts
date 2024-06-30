@@ -16,6 +16,12 @@ export default defineConfig({
 		poolOptions: {
 			useAtomics: true
 		},
+		browser: {
+			enabled: true,
+			name: 'chromium',
+			headless: true,
+			provider: 'playwright'
+		},
 		testTimeout: 3000,
 		onConsoleLog(log, type) {
 			if (log.includes('inside a test was not wrapped in act')) return false;

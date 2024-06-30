@@ -21,6 +21,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/browser": "^1.6.0",
+    "playwright": "^1.45.0",
     "react-cosmos": "^6.1.1",
     "react-cosmos-next": "^6.1.1",
     "typescript": "^5",
