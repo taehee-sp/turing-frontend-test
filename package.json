@@ -13,6 +13,7 @@
     "story": "cosmos --expose-imports",
     "cosmos-export": "cosmos-export --expose-imports",
     "test": "vitest",
+    "test:node": "vitest --browser.enabled false",
     "test:cov": "vitest run --coverage.enabled true"
   },
   "dependencies": {

@@ -20,7 +20,7 @@ export default defineConfig({
 		},
 		environment: 'happy-dom',
 		browser: {
-			enabled: false,
+			enabled: true,
 			name: "chromium",
 			headless: true,
 			provider: "playwright",
