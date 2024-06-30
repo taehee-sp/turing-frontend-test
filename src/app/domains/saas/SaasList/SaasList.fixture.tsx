@@ -6,7 +6,7 @@ import {
 	이름만_있는_SaaS,
 } from "./SaasListItem.fixture";
 
-const testSaasList: {
+export const testSaasList: {
 	id: string;
 	logoUrl: string | null;
 	name: string;
