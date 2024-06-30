@@ -4,7 +4,7 @@ import { describe, test } from "vitest";
 import { expectTL } from "@/siheom/expectTL";
 import { queryTL } from "@/siheom/queryTL";
 
-describe("SaasList", () => {
+describe("FilterList", () => {
 	test("결제 내역 있는 SaaS만 필터할 수 있다", async () => {
 		render(FilterListStories["여러 개의 필터"]);
 
