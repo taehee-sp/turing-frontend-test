@@ -9,7 +9,7 @@ export const SelectWithComboboxStory = ({ memberList }: {memberList: {id: string
 			label="사용자"
 			emptyValue={<div>설정하기</div>}
 			searchPlaceholder="이름을 입력해주세요"
-			optionList={memberList.map(member => ({ id: member.id, value: member.name, label: <div> {member.name}</div>}))}
+			optionList={memberList.map(member => ({ value: member.id, searchValue: member.name, label: <div>{member.name}</div>}))}
 			selected={selected}
 			onChange={setSelected}
 		/>
