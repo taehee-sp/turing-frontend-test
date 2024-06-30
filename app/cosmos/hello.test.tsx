@@ -1,8 +1,9 @@
-import { renderToString } from 'react-dom/server';
+import { render, screen } from '@testing-library/react';
 import helloStory from './Hello.fixture';
 import { expect, test } from 'vitest'
 
 test('render hello', () => {
-  document.body.innerHTML = renderToString(helloStory);
-  expect(document.body.innerHTML).toBe('<h1>Hello World!</h1>')
+  render(helloStory);
+
+  expect(screen.getByRole('heading', { name: "Hello World!" })).toBeInTheDocument()
 })
