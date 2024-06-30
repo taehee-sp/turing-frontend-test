@@ -15,6 +15,10 @@ export const SaasList = ({
 }) => {
 	const [selected, setSelected] = useState("all");
 
+	const saasWithPaymentList = saasList.filter(
+		(saas) => saas.lastPaidAt instanceof Date,
+	);
+
 	return (
 		<VStack>
 			<fieldset>
@@ -30,10 +34,22 @@ export const SaasList = ({
 						}}
 					/>
 				</label>
+
+				<label>
+					결제 내역 있는 SaaS {saasWithPaymentList.length}
+					<input
+						type="radio"
+						value="with-payment"
+						checked={selected === "with-payment"}
+						onChange={() => {
+							setSelected("with-payment");
+						}}
+					/>
+				</label>
 			</fieldset>
 
 			<ul aria-label="SaaS 목록">
-				{saasList
+				{(selected === "all" ? saasList : saasWithPaymentList)
 					.sort(
 						(a, b) =>
 							(b.lastPaidAt?.valueOf() ?? 0) - (a.lastPaidAt?.valueOf() ?? 0),
