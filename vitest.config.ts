@@ -35,18 +35,21 @@ export default defineConfig({
 				return false;
 			if (log.includes("should be wrapped into act")) return false;
 		},
-		// coverage: {
-		// 	provider: 'istanbul',
-		// 	include: [
-		// 		'src/**/*.{ts,tsx}'
-		// 	],
-		// 	exclude: [
-		// 		'node_modules/**',
-		// 		'dist/**',
-		// 		'src/**/*.{test,spec}.{ts,tsx}',
-		// 	],
-		// 	all: true,
-		// 	reporter: ['json', 'text', 'html'],
-		// },
+		coverage: {
+			provider: "istanbul",
+			include: ["src/**/*.{ts,tsx}"],
+			exclude: [
+				"node_modules/**",
+				"dist/**",
+				"src/**/*.{stories,fixture}.{ts,tsx}",
+				"src/**/*.{test,spec}.{ts,tsx}",
+				"src/app/page.tsx",
+				"src/app/layout.tsx",
+				"src/app/cosmos",
+				"src/siheom",
+			],
+			all: true,
+			reporter: ["json", "text", "html"],
+		},
 	},
 });

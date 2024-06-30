@@ -5,6 +5,7 @@ import { css } from "@styled-system/css/css";
 import { hstack, vstack } from "@styled-system/patterns";
 import { getRegExp } from "korean-regexp";
 import { startTransition, useState, type ReactNode } from "react";
+import invariant from 'tiny-invariant';
 
 export const SelectWithCombobox = ({
 	label,
@@ -29,8 +30,10 @@ export const SelectWithCombobox = ({
 	const matches = optionList.filter((option) => regex.test(option.searchValue));
 
 	const selectedOption = selected
-		? optionList.find((option) => option.value === selected) ?? null
+		? optionList.find((option) => option.value === selected)
 		: null;
+
+	invariant(selectedOption !== undefined)
 
 	const inputRecipe = () =>
 		css({
