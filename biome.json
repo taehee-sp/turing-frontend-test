@@ -8,6 +8,6 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": [".next"]
+		"ignore": [".next", "cosmos.imports.ts"]
 	}
 }

@@ -18,11 +18,11 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./app/*"],
-			"styled-system/*": ["./styled-system/*"]
+			"@/*": ["./src/*"],
+			"@styled-system/*": ["./styled-system/*"]
 		},
 		"types": ["@vitest/browser/providers/playwright"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/**/*.ts", "**/**/*.tsx"],
 	"exclude": ["node_modules"]
 }

@@ -7,7 +7,7 @@ export default defineConfig({
 	root: "./",
 	test: {
 		setupFiles: "./setupTests.ts",
-		include: ["app/**/*.test.tsx", "app/**/*.test.ts"],
+		include: ["src/**/*.test.tsx", "src/**/*.test.ts"],
 		css: true,
 		pool: "vmThreads",
 		poolOptions: {
@@ -33,7 +33,7 @@ export default defineConfig({
 		// coverage: {
 		// 	provider: 'istanbul',
 		// 	include: [
-		// 		'app/**/*.{ts,tsx}'
+		// 		'src/**/*.{ts,tsx}'
 		// 	],
 		// 	exclude: [
 		// 		'node_modules/**',

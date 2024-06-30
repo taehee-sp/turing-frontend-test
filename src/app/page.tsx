@@ -1,5 +1,7 @@
-import { css } from 'styled-system/css/css';
-import { VStack } from 'styled-system/jsx';
+import React from 'react';
+import {VStack} from "../../styled-system/jsx/vstack";
+import {css} from "../../styled-system/css/css";
+
 export default function Home() {
 	return (
 		<main>
