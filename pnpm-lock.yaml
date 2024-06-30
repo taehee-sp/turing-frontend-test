@@ -11,6 +11,9 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.6.0
         version: 3.6.0(react-hook-form@7.52.0(react@18.3.1))
+      korean-regexp:
+        specifier: ^1.0.12
+        version: 1.0.12
       next:
         specifier: 14.2.4
         version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1662,6 +1665,9 @@ packages:
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
+
+  korean-regexp@1.0.12:
+    resolution: {integrity: sha512-j6wF9gnheluqSMQ0H4dDTrWR2U7POrnmzUWWPRmwwp69FOQFqu331/Q3N/WCmhyDUW0cRPzCE3RwY3auXEtdgg==}
 
   lightningcss-darwin-arm64@1.23.0:
     resolution: {integrity: sha512-kl4Pk3Q2lnE6AJ7Qaij47KNEfY2/UXRZBT/zqGA24B8qwkgllr/j7rclKOf1axcslNXvvUdztjo4Xqh39Yq1aA==}
@@ -4187,6 +4193,8 @@ snapshots:
       graceful-fs: 4.2.11
 
   kleur@4.1.5: {}
+
+  korean-regexp@1.0.12: {}
 
   lightningcss-darwin-arm64@1.23.0:
     optional: true
