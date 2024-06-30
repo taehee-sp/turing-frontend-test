@@ -9,6 +9,7 @@ import { startTransition, useState, type ReactNode } from "react";
 export const SelectWithCombobox = ({
 	label,
 	emptyValue,
+	removeLabel,
 	searchPlaceholder,
 	optionList,
 	selected,
@@ -16,6 +17,7 @@ export const SelectWithCombobox = ({
 }: {
 	label: ReactNode;
 	emptyValue: ReactNode;
+	removeLabel: ReactNode;
 	optionList: { value: string; searchValue: string; label: ReactNode }[];
 	searchPlaceholder: string;
 	selected: string | null;
@@ -63,7 +65,7 @@ export const SelectWithCombobox = ({
 							onChange(null);
 						}}
 					>
-						{selectedOption.label} 해제하기
+						{selectedOption.label} {removeLabel}
 					</button>
 				) : (
 					<Ariakit.Select className={inputRecipe()}>

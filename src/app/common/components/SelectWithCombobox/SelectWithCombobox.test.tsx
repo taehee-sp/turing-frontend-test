@@ -33,6 +33,8 @@ describe("SelectWithCombobox", () => {
 
 		await queryTL.button("김태희 해제하기").click();
 
+		await queryTL.dialog("사용자를 해제할까요?").button("확인").click();
+
 		await expectTL(queryTL.combobox("사용자")).toHaveText("설정하기");
 	});
 });
