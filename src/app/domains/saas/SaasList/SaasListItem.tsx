@@ -1,4 +1,5 @@
 import { Link } from "@/app/routing/Link";
+import { hstack } from "@styled-system/patterns";
 
 const SAAS_DEFAULT_IMAGE_URL = "";
 
@@ -19,7 +20,7 @@ export const SaasListItem = ({
 	const lastPaidAt = saas.lastPaidAt;
 	return (
 		<li>
-			<Link href={`/saas/${saas.id}`}>
+			<Link className={hstack()} href={`/saas/${saas.id}`}>
 				<img
 					src={saas.logoUrl ?? SAAS_DEFAULT_IMAGE_URL}
 					alt=""
