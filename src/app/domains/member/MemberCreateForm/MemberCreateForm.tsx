@@ -1,12 +1,18 @@
 "use client";
 import { valibotResolver } from "@hookform/resolvers/valibot";
-import { VStack } from '@styled-system/jsx';
+import { css, cx } from "@styled-system/css";
+import { vstack } from "@styled-system/patterns";
+import { type ComponentProps, forwardRef, useId } from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import invariant from "tiny-invariant";
 import * as v from "valibot";
 
 const NewMemberSchema = v.object({
-	name: v.pipe(v.string(), v.minLength(1, "이름을 입력해주세요")),
+	name: v.pipe(
+		v.string(),
+		v.minLength(1, "이름을 입력해주세요"),
+		v.maxLength(24, "이름은 24자까지만 입력 가능합니다."),
+	),
 	email: v.pipe(
 		v.string(),
 		v.minLength(1, "이메일을 입력해주세요"),
@@ -23,13 +29,60 @@ const SimpleErrorMessage = ({ name }: { name: string }) => {
 	if (errorMessage) {
 		invariant(typeof errorMessage === "string");
 		return (
-			<p role="alert" aria-label={errorMessage}>
+			<p
+				role="alert"
+				aria-label={errorMessage}
+				className={css({ color: "red" })}
+			>
 				{errorMessage}
 			</p>
 		);
 	}
-	return null;
+	return <p />;
 };
+
+const Input = forwardRef<
+	HTMLInputElement,
+	ComponentProps<"input"> & { name: string }
+>((props, ref) => {
+	const {
+		formState: { errors },
+	} = useFormContext();
+
+	return (
+		<input
+			ref={ref}
+			{...props}
+			className={css({
+				width: "100%",
+				borderRadius: "8px",
+				border: "1px solid #d9dee2",
+				padding: "16px",
+			})}
+			aria-invalid={typeof errors[props.name]?.message === "string"}
+		/>
+	);
+});
+
+const button = () =>
+	css({
+		background: "#4f89fb",
+		color: "white",
+		width: "100%",
+		borderRadius: "8px",
+		display: "flex",
+		gap: "8px",
+		justifyContent: "center",
+		padding: "14px 16px",
+		fontSize: "17px",
+		fontWeight: 600,
+		transitionProperty: "background, color",
+		transitionDuration: ".125s",
+		transitionTimingFunction: "ease-in-out",
+		_hover: {
+			background: "#1863f6",
+		},
+	});
 
 export const MemberCreateForm = ({
 	createMember,
@@ -42,27 +95,62 @@ export const MemberCreateForm = ({
 
 	const { register, handleSubmit } = methods;
 
+	const id = useId();
 	return (
 		<FormProvider {...methods}>
-			<VStack>
+			<h2
+				id={id}
+				className={css({
+					fontSize: "2rem",
+					fontWeight: "bold",
+				})}
+			>
+				멤버 추가
+			</h2>
 			<form
+				aria-labelledby={id}
+				className={cx(
+					vstack(),
+					css({
+						background: "white",
+						padding: "20px",
+						borderRadius: "12px",
+						border: "1px solid black",
+						margin: "12px",
+					}),
+				)}
 				onSubmit={handleSubmit((data) => {
 					createMember(data);
 				})}
 			>
-				<label>
-					이름
-					<input type="text" {...register("name")} />
+				<label
+					className={cx(
+						vstack({ alignItems: "start" }),
+						css({ width: "100%" }),
+					)}
+				>
+					<div>
+						이름 <span className={css({ color: "red" })}>*</span>
+					</div>
+					<Input type="text" {...register("name")} />
 					<SimpleErrorMessage name="name" />
 				</label>
-				<label>
-					이메일
-					<input type="email" {...register("email")} />
+				<label
+					className={cx(
+						vstack({ alignItems: "start" }),
+						css({ width: "100%" }),
+					)}
+				>
+					<div>
+						회사 이메일 <span className={css({ color: "red" })}>*</span>
+					</div>
+					<Input type="email" {...register("email")} />
 					<SimpleErrorMessage name="email" />
 				</label>
-				<button type="submit">추가하기</button>
+				<button type="submit" className={button()}>
+					추가하기
+				</button>
 			</form>
-			</VStack>
 		</FormProvider>
 	);
 };

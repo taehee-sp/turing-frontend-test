@@ -15,10 +15,12 @@ describe("MemberCreateForm", () => {
 			/>,
 		);
 
-		await queryTL.textbox("이름").fill("김태희");
-		await queryTL.textbox("이메일").fill("twinstae@naver.com");
+		const form = queryTL.form("멤버 추가");
 
-		await queryTL.button("추가하기").click();
+		await form.textbox("이름").fill("김태희");
+		await form.textbox("회사 이메일").fill("twinstae@naver.com");
+
+		await form.button("추가하기").click();
 
 		// await expectTL(queryTL.alert("멤버를 추가했어요!")).toBeVisible();
 
