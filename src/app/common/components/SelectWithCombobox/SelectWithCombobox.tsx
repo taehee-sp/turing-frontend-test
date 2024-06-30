@@ -1,5 +1,6 @@
 "use client";
 import * as Ariakit from "@ariakit/react";
+import { getRegExp } from 'korean-regexp';
 import { startTransition, useState, type ReactNode } from "react";
 
 export const SelectWithCombobox = ({
@@ -19,8 +20,9 @@ export const SelectWithCombobox = ({
 }) => {
 	const [searchValue, setSearchValue] = useState("");
 
+  const regex = getRegExp(searchValue)
 	const matches = optionList.filter((option) =>
-		option.searchValue.includes(searchValue),
+		regex.test(option.searchValue)
 	);
 
 	const selectedOption = selected

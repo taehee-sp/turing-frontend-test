@@ -15,15 +15,15 @@ describe("SelectWithCombobox", () => {
 		await expectTL(queryTL.option("")).toHaveTextContents([
 			"탐정토끼",
 			"김태희",
-			"스텔로",
+			"stelo",
 		]);
 
-		// await queryTL.combobox("이름을 입력해주세요").fill("ㄱ");
+		await queryTL.combobox("이름을 입력해주세요").fill("ㅌ");
 
-		// await expectTL(queryTL.option("")).toHaveTextContents([
-		// 	"탐정토끼",
-		// 	"김태희",
-		// ]);
+		await expectTL(queryTL.option("")).toHaveTextContents([
+			"탐정토끼",
+			"김태희",
+		]);
 
 		await queryTL.combobox("이름을 입력해주세요").fill("김");
 
