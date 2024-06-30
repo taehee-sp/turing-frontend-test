@@ -15,6 +15,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@ariakit/react": "^0.4.7",
     "@hookform/resolvers": "^3.6.0",
     "korean-regexp": "^1.0.12",
     "next": "14.2.4",
