@@ -5,10 +5,16 @@ import { SaasList } from "./domains/saas/SaasList/SaasList";
 import { testSaasList } from "./domains/saas/SaasList/SaasList.fixture";
 
 async function getSaasList() {
+	// fetch라면?
+	// fetch("/customer/" + customerId +"/saas")
+	//   .then(res => res.json())
+	//   .then(body => body.saasList)
 	return testSaasList;
 }
 
 export default async function Home() {
+	// react-query 라면?
+	// const saasList = useSuspenseQuery(saasListOption()).data
 	const saasList = await getSaasList();
 
 	return (
