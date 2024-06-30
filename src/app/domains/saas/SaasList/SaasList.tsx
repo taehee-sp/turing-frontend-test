@@ -2,6 +2,7 @@
 import { VStack } from "@styled-system/jsx";
 import { SaasListItem } from "./SaasListItem";
 import { useState } from "react";
+import { FilterList } from "@/app/common/components/FilterList/FilterList";
 
 export const SaasList = ({
 	saasList,
@@ -21,32 +22,18 @@ export const SaasList = ({
 
 	return (
 		<VStack>
-			<fieldset>
-				<legend> 필터 </legend>
-				<label>
-					전체 {saasList.length}
-					<input
-						type="radio"
-						value="all"
-						checked={selected === "all"}
-						onChange={() => {
-							setSelected("all");
-						}}
-					/>
-				</label>
-
-				<label>
-					결제 내역 있는 SaaS {saasWithPaymentList.length}
-					<input
-						type="radio"
-						value="with-payment"
-						checked={selected === "with-payment"}
-						onChange={() => {
-							setSelected("with-payment");
-						}}
-					/>
-				</label>
-			</fieldset>
+			<FilterList
+				title="필터"
+				optionList={[
+					{ value: "all", label: `전체 ${saasList.length}` },
+					{
+						value: "with-payment",
+						label: `결제 내역 있는 SaaS ${saasWithPaymentList.length}`,
+					},
+				]}
+				selected={selected}
+				onChange={setSelected}
+			/>
 
 			<ul aria-label="SaaS 목록">
 				{(selected === "all" ? saasList : saasWithPaymentList)
