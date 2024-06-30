@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-import MemberCreateFormStories from "./MemberCreateForm.fixture";
 import { describe, expect, test } from "vitest";
 import { expectTL } from "@/siheom/expectTL";
 import { queryTL } from "@/siheom/queryTL";
@@ -17,15 +16,15 @@ describe("MemberCreateForm", () => {
 		);
 
 		await queryTL.textbox("이름").fill("김태희");
-		// await queryTL.textbox("이메일").fill("twinstae@naver.com");
+		await queryTL.textbox("이메일").fill("twinstae@naver.com");
 
-		// await queryTL.button("추가하기").click();
+		await queryTL.button("추가하기").click();
 
 		// await expectTL(queryTL.alert("멤버를 추가했어요!")).toBeVisible();
 
-		// expect(submitted).toEqual({
-		// 	name: "김태희",
-		// 	email: "twinstae@naver.com",
-		// });
+		expect(submitted).toEqual({
+			name: "김태희",
+			email: "twinstae@naver.com",
+		});
 	});
 });
