@@ -8,4 +8,6 @@ test("render hello", async () => {
 	render(SaasListStories["Saas가 여럿 있음"]);
 
 	await expectTL(queryTL.list("SaaS 목록")).toBeVisible();
+
+	await expectTL(queryTL.listitem("")).toHaveCount(5);
 });
