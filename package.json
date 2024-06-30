@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "format": "pnpm biome format --write app/**/*",
     "lint": "biome lint",
-    "cosmos": "cosmos --expose-imports",
+    "story": "cosmos --expose-imports",
     "cosmos-export": "cosmos-export --expose-imports",
     "test": "vitest"
   },
