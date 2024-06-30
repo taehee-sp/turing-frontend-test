@@ -1,12 +1,4 @@
-"use client";
-import { MemberCreateForm } from "./MemberCreateForm";
-
+import { MemberCreateFormStory } from './MemberCreateForm.stories'
 export default {
-	기본: (
-		<MemberCreateForm
-			createMember={(newMember) => {
-				alert(JSON.stringify(newMember));
-			}}
-		/>
-	),
+	기본: <MemberCreateFormStory />
 };
