@@ -4,7 +4,7 @@ import { css, cx } from "@styled-system/css";
 import { vstack } from "@styled-system/patterns";
 import { type ComponentProps, forwardRef, useId } from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import invariant from "tiny-invariant";
 import * as v from "valibot";
 
@@ -122,7 +122,7 @@ export const MemberCreateForm = ({
 				)}
 				onSubmit={handleSubmit((data) => {
 					createMember(data).then(() => {
-						toast("멤버를 추가했어요!")
+						toast("멤버를 추가했어요!");
 					});
 				})}
 			>

@@ -31,7 +31,7 @@ export const SelectWithComboboxStory = ({
 				}}
 			/>
 			<Dialog open={open} onClose={() => setOpen(false)}>
-				<DialogHeading >사용자를 해제할까요?</DialogHeading>
+				<DialogHeading>사용자를 해제할까요?</DialogHeading>
 				<div>
 					<DialogDismiss
 						onClick={() => {
