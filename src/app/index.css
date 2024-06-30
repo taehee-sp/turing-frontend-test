@@ -1,1 +1,3 @@
 @layer reset, base, tokens, recipes, utilities;
+
+body {font-family: 'SUIT Variable', sans-serif;}
