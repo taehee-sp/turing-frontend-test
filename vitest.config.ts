@@ -1,32 +1,34 @@
-import { defineConfig } from 'vitest/config';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
 /// <reference types="vitest" />
 
 export default defineConfig({
-	plugins: [
-		react(),
-	],
-	root: './',
+	plugins: [react()],
+	root: "./",
 	test: {
-		setupFiles: './setupTests.ts',
-		include: ['app/**/*.test.tsx', 'app/**/*.test.ts'],
+		setupFiles: "./setupTests.ts",
+		include: ["app/**/*.test.tsx", "app/**/*.test.ts"],
 		css: true,
-		pool: 'vmThreads',
+		pool: "vmThreads",
 		poolOptions: {
-			useAtomics: true
+			useAtomics: true,
 		},
 		browser: {
 			enabled: true,
-			name: 'chromium',
+			name: "chromium",
 			headless: true,
-			provider: 'playwright'
+			provider: "playwright",
 		},
 		testTimeout: 3000,
 		onConsoleLog(log, type) {
-			if (log.includes('inside a test was not wrapped in act')) return false;
-			if (log.includes('Warning: ReactDOM.render is no longer supported in React 18')) return false;
-			if (log.includes('should be wrapped into act')) return false;
-
+			if (log.includes("inside a test was not wrapped in act")) return false;
+			if (
+				log.includes(
+					"Warning: ReactDOM.render is no longer supported in React 18",
+				)
+			)
+				return false;
+			if (log.includes("should be wrapped into act")) return false;
 		},
 		// coverage: {
 		// 	provider: 'istanbul',

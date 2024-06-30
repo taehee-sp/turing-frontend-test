@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "format": "pnpm biome format --write app/**/*",
+    "lint": "biome lint",
     "cosmos": "cosmos --expose-imports",
     "cosmos-export": "cosmos-export --expose-imports",
     "test": "vitest"
@@ -17,6 +18,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@testing-library/dom": "^10.2.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
