@@ -3,7 +3,7 @@ import { MemberCreateForm } from "./MemberCreateForm";
 
 export const MemberCreateFormStory = () => (
 	<MemberCreateForm
-		createMember={(newMember) => {
+		createMember={async (newMember) => {
 			alert(JSON.stringify(newMember));
 		}}
 	/>

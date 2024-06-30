@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./index.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
 	title: "튜링의 사과 프론트엔드 테스트 강의",
@@ -20,7 +22,10 @@ export default function RootLayout({
 					rel="stylesheet"
 				/>
 			</head>
-			<body>{children}</body>
+			<body>
+				{children}
+				<ToastContainer />
+			</body>
 		</html>
 	);
 }

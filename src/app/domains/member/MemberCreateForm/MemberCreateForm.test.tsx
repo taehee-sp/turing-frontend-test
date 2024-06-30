@@ -3,13 +3,14 @@ import { describe, expect, test } from "vitest";
 import { expectTL } from "@/siheom/expectTL";
 import { queryTL } from "@/siheom/queryTL";
 import { MemberCreateForm } from "./MemberCreateForm";
+import { renderWithContext } from '@/siheom/renderWithContext';
 
 describe("MemberCreateForm", () => {
 	test("올바른 정보를 입력하면 멤버를 추가할 수 있다", async () => {
 		let submitted: null | { name: string; email: string } = null;
-		render(
+		renderWithContext(
 			<MemberCreateForm
-				createMember={(newMember) => {
+				createMember={async (newMember) => {
 					submitted = newMember;
 				}}
 			/>,
@@ -22,7 +23,7 @@ describe("MemberCreateForm", () => {
 
 		await form.button("추가하기").click();
 
-		// await expectTL(queryTL.alert("멤버를 추가했어요!")).toBeVisible();
+		await expectTL(queryTL.alert()).toHaveText("멤버를 추가했어요!");
 
 		expect(submitted).toEqual({
 			name: "김태희",
@@ -34,7 +35,7 @@ describe("MemberCreateForm", () => {
 		let submitted: null | { name: string; email: string } = null;
 		render(
 			<MemberCreateForm
-				createMember={(newMember) => {
+				createMember={async (newMember) => {
 					submitted = newMember;
 				}}
 			/>,

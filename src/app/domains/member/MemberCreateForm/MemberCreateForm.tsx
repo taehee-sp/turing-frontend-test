@@ -4,6 +4,7 @@ import { css, cx } from "@styled-system/css";
 import { vstack } from "@styled-system/patterns";
 import { type ComponentProps, forwardRef, useId } from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import { toast } from 'react-toastify';
 import invariant from "tiny-invariant";
 import * as v from "valibot";
 
@@ -87,7 +88,7 @@ const button = () =>
 export const MemberCreateForm = ({
 	createMember,
 }: {
-	createMember: (newMember: { name: string; email: string }) => void;
+	createMember: (newMember: { name: string; email: string }) => Promise<void>;
 }) => {
 	const methods = useForm<{ name: string; email: string }>({
 		resolver: valibotResolver(NewMemberSchema),
@@ -120,7 +121,9 @@ export const MemberCreateForm = ({
 					}),
 				)}
 				onSubmit={handleSubmit((data) => {
-					createMember(data);
+					createMember(data).then(() => {
+						toast("멤버를 추가했어요!")
+					});
 				})}
 			>
 				<label
