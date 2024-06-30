@@ -1,3 +1,5 @@
+import { Link } from "@/app/routing/Link";
+
 const SAAS_DEFAULT_IMAGE_URL = "";
 
 function formatDate년월일(date: Date): string {
@@ -17,13 +19,15 @@ export const SaasListItem = ({
 	const lastPaidAt = saas.lastPaidAt;
 	return (
 		<li>
-			<img
-				src={saas.logoUrl ?? SAAS_DEFAULT_IMAGE_URL}
-				alt=""
-				role="presentation"
-			/>
-			<h3>{saas.name}</h3>
-			{lastPaidAt && <p>{formatDate년월일(lastPaidAt)} 결제</p>}
+			<Link href={`/saas/${saas.id}`}>
+				<img
+					src={saas.logoUrl ?? SAAS_DEFAULT_IMAGE_URL}
+					alt=""
+					role="presentation"
+				/>
+				<h3>{saas.name}</h3>
+				{lastPaidAt && <p>{formatDate년월일(lastPaidAt)} 결제</p>}
+			</Link>
 		</li>
 	);
 };

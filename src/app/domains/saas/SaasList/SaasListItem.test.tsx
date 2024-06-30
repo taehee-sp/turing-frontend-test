@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import SaasListItemStories from "./SaasListItem.fixture";
 import { describe, test } from "vitest";
-import { expectTL } from "../../../../siheom/expectTL";
-import { queryTL } from "../../../../siheom/queryTL";
+import { expectTL } from "@/siheom/expectTL";
+import { queryTL } from "@/siheom/queryTL";
 
 describe("SaasListItem", () => {
 	test("이름만 있는 SaaS", async () => {

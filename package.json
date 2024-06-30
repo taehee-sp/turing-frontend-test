@@ -35,6 +35,8 @@
     "react-cosmos": "^6.1.1",
     "react-cosmos-next": "^6.1.1",
     "typescript": "^5",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   }
 }
