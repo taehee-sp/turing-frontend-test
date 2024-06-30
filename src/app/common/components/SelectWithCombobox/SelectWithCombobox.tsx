@@ -36,7 +36,7 @@ export const SelectWithCombobox = ({
 			borderRadius: "8px",
 			border: "1px solid #d9dee2",
 			padding: "16px",
-      textAlign: 'left'
+			textAlign: "left",
 		});
 
 	return (

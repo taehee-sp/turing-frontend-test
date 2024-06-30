@@ -8,7 +8,7 @@ describe("SelectWithCombobox", () => {
 	test("옵션을 검색하고 선택하고 취소할 수 있다", async () => {
 		render(SelectWithComboboxStories["여러 개의 옵션"]);
 
-		await expectTL(queryTL.combobox("사용자")).toHaveText("설정하기")
+		await expectTL(queryTL.combobox("사용자")).toHaveText("설정하기");
 
 		await queryTL.combobox("사용자").click();
 
@@ -32,7 +32,7 @@ describe("SelectWithCombobox", () => {
 		await queryTL.option("김태희").click();
 
 		await queryTL.button("김태희 해제하기").click();
-			
-		await expectTL(queryTL.combobox("사용자")).toHaveText("설정하기")
+
+		await expectTL(queryTL.combobox("사용자")).toHaveText("설정하기");
 	});
 });
