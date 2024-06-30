@@ -12,9 +12,14 @@ export const SaasList = ({
 }) => {
 	return (
 		<ul aria-label="SaaS 목록">
-			{saasList.map((saas) => (
-				<SaasListItem key={saas.id} saas={saas} />
-			))}
+			{saasList
+				.sort(
+					(a, b) =>
+						(b.lastPaidAt?.valueOf() ?? 0) - (a.lastPaidAt?.valueOf() ?? 0),
+				)
+				.map((saas) => (
+					<SaasListItem key={saas.id} saas={saas} />
+				))}
 		</ul>
 	);
 };
