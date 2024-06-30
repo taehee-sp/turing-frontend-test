@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import helloStory from "./Hello.fixture";
-import { expect, test } from "vitest";
+import { test } from "vitest";
 import { expectTL } from '../../siheom/expectTL';
 import { queryTL } from '../../siheom/queryTL';
 
