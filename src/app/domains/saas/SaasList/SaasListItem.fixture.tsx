@@ -10,7 +10,8 @@ export const 로고_결제내역_있는_SaaS = {
 export const 결재내역_없는_SaaS = {
 	id: "c54e160e-feb2-4545-b0a4-a2ed7f70e6d2",
 	name: "Slack",
-	logoUrl: "https://assets-dev.smply.app/saas-logos/2-abcQ3Rrt.png",
+	logoUrl:
+		"https://assets-global.website-files.com/621c8d7ad9e04933c4e51ffb/65eba5ffa14998827c92cc01_slack-octothorpe.png",
 	lastPaidAt: null,
 };
 

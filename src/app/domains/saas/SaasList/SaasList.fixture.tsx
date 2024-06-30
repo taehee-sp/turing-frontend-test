@@ -19,7 +19,7 @@ export const testSaasList: {
 	{
 		id: "80641d76-5a6a-42d0-84a0-495d7287ae27",
 		name: "Asana",
-		logoUrl: "https://assets-dev.smply.app/saas-logos/5-defQ3Rrt.png",
+		logoUrl: "https://asana.com/favicon.ico",
 		lastPaidAt: new Date("2024-06-20"),
 	},
 ];
