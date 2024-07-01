@@ -23,6 +23,7 @@ export function getA11ySnapshot(element: HTMLElement) {
 	}
 
 	function getAccessibleName(el: HTMLElement) {
+		if (el.hasAttribute("alt")) return el.getAttribute("alt");
 		if (el.hasAttribute("aria-label")) return el.getAttribute("aria-label");
 		if (el.hasAttribute("aria-labelledby")) {
 			const labelId = el.getAttribute("aria-labelledby");

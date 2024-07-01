@@ -19,10 +19,7 @@ describe("SelectWithCombobox", () => {
 			"stelo",
 		]);
 
-		expect(
-			getA11ySnapshot(
-				document.body),
-		).toMatchInlineSnapshot(`
+		expect(getA11ySnapshot(document.body)).toMatchInlineSnapshot(`
 			"combobox: 사용자
 			dialog: 사용자
 			  combobox: 이름을 입력해주세요
@@ -47,10 +44,9 @@ describe("SelectWithCombobox", () => {
 
 		await queryTL.button("김태희 해제하기").click();
 
-		expect(
-			getA11ySnapshot(
-				document.body),
-		).toMatchInlineSnapshot(`
+		await expectTL(queryTL.dialog("사용자를 해제할까요?")).toBeVisible();
+		
+		expect(getA11ySnapshot(document.body)).toMatchInlineSnapshot(`
 			"button: 김태희 해제하기
 			dialog: 사용자를 해제할까요?
 			  heading: 사용자를 해제할까요?
