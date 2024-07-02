@@ -116,6 +116,12 @@ test('render hello', () => {
 })
 ```
 
+playwright는 테스트용 브라우저를 설치하지 않으면 실행되지 않을 때도 있습니다. 경고창이 나왔다면 시키는대로 브라우저를 설치해줍시다.
+
+```sh
+npx playwright install
+```
+
 ### setup testing library
 
 renderToString 이나 createRoot() 는 번거롭기도 하지만, 테스트가 끝날 때마다 unmount 시켜주고 정리하는 게 번거롭기도 합니다. 그외에도 클릭이나 타이핑 같은 복잡한 사용자 동작을 테스트하기 위해 보통은 @testing-library 를 사용합니다.
@@ -229,3 +235,15 @@ export default defineConfig({
 	// ...
 })
 ```
+
+### 설정 파일을 이해하는 법
+
+지금까지 설정하면서 보면 많은 값과 옵션들이 있었는데요. 나중에 문서를 검색해서 천천히 읽어보시는 것도 도움이 되겠지만, 다른 방법도 있습니다. 바로 에러를 내보는 것입니다. 방금 vite-tsconfig-paths가 없을 때 난 에러를 본 것처럼요.
+
+예를 들어 `vitest.config.ts`의 옵션을 예로 들어봅시다. 실습을 하시다가 한 번 `pnpm test:headed`로 브라우저 화면이 눈에 보이게 해둔 뒤에, `css: false`로 css 옵션을 꺼보세요. 무슨 일이 벌어질지 예상이 가시나요?
+
+setupFiles를 지우거나 setupTests.ts 의 경로를 잘못 입력하면 어떤 에러가 나나요?
+`import "@testing-library/jest-dom/vitest";` 대신에 `import "@testing-library/jest-dom"`를 import하면 무슨 일이 벌어지나요? (둘의 차이점이 보이시나요?);
+
+
+이런 식으로 에러를 내보면 나중에 셋업을 하다가 실수를 하거나 일부를 빼먹어서 에러 메시지를 보더라도, 쉽게 원인을 파악하고 고칠 수 있습니다. 제가 [에러 찾지 말고 일부러 만드세요!](https://twinstae.github.io/experiment-with-error/)라는 글도 썼으니 한 번 시간이 되실 때 읽어보셔도 좋겠습니다.
