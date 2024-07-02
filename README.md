@@ -69,3 +69,9 @@
 
 이번에는 실제로 list와 link, form과 select, combobox 등의 복잡한 컴포넌트들을 시맨틱 html과 제가 실무에서 사용하고 있기도 한 Ariakit 이라는 Headless Component 라이브러리를 이용해서 TDD로 개발하고 스타일링까지 하는 걸 보여드립니다. 실무에서 저는 clojurescript와 reagent를 이용하고 있지만, 예제는 Next js와 react를 이용해 구현했습니다. React가 아닌 vue나 svelte를 이용하시는 분들도 웹표준 html은 동일하게 사용하실 수 있고, radix-vue 나 ark-ui 같은 헤드리스 컴포넌트 라이브러리를 이용하시면 실무에 쉽게 적용하실 수 있으리라 기대합니다.
 
+### 강의 교안
+
+[하나. 브라우저 컴포넌트 테스트 환경 셋업하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/cosmos)
+[둘. 목록과 필터 컴포넌트 테스트하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/domains/saas/SaasList)
+[셋. 폼 컴포넌트 테스트하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/domains/member/MemberCreateForm)
+[넷. 헤드리스 컴포넌트로 만든 디자인 시스템 테스트하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/common/components/SelectWithComboboxd)
