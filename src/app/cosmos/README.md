@@ -30,9 +30,40 @@ pnpm add -D vitest @vitejs/plugin-react
 
 `vitest.config.ts`와 `setupTests.ts` 그리고 간단한 `hello.test.tsx` 파일을 만듭니다.
 
+```ts
+// vitest.config.ts
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+/// <reference types="vitest" />
+
+export default defineConfig({
+	plugins: [react()],
+	root: './',
+	test: {
+		setupFiles: './setupTests.ts',
+		include: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
+		css: true,
+		pool: 'vmThreads',
+		poolOptions: {
+			useAtomics: true
+		},
+		testTimeout: 3000
+	},
+});
+
+```
+
+setupTests.ts 에는 지금은 별 내용이 없습니다. 혹시 앱에서 사용하는 전역 css 파일이 있으면 똑같이 import해줍시다. css를 import하지 않으면 나중에 브라우저에서 테스트를 돌릴 때 css가 적용되지 않는 것처럼 보입니다.
+
+```ts
+// setupTests.ts
+import "@/app/index.css"
+```
+
 역사와 전통을 따라서 간단하게 1+1을 검증하는 테스트를 만듭니다.
 
 ```ts
+// hello.test.tsx
 import { expect, test } from 'vitest'
 
 test('adds 1 + 2 to equal 3', () => {
@@ -157,4 +188,44 @@ await queryTL.button("구매하기").click();
 
 ### vite vs nextjs webpack의 차이
 
-vite-tsconfig-paths 설정하기
+nextjs 는 tsconfig에 paths에 적은 alias를 알아서 적용합니다.
+
+```json
+{
+	"compilerOptions": {
+		// ...
+		"paths": {
+			"@/*": ["./src/*"],
+			"@styled-system/*": ["./styled-system/*"]
+		},
+		"types": ["@vitest/browser/providers/playwright"]
+	},
+	// ...
+}
+```
+
+하지만 vitest는 명시적으로 플러그인을 사용하거나 `resolve.alias` 를 설정해줘야 합니다. 안 그러면 다음처럼 에러가 납니다.
+
+```sh
+FAIL  src/app/common/components/FilterList/FilterList.test.tsx [ src/app/common/components/FilterList/FilterList.test.tsx ]
+FAIL  src/app/domains/member/MemberCreateForm/MemberCreateForm.test.tsx [ src/app/domains/member/MemberCreateForm/MemberCreateForm.test.tsx ]
+Error: Failed to resolve import "@/app/index.css" from "setupTests.ts". Does the file exist?
+ ❯ TransformPluginContext._formatError node_modules/.pnpm/vite@5.3.2_@types+node@20.14.9_lightning
+```
+
+vite-tsconfig-paths 를 설치하고 설정해줍시다.
+
+```sh
+pnpm add -D vite-tsconfig-paths
+```
+
+```ts
+import tsconfigPaths from "vite-tsconfig-paths";
+import svgr from "vite-plugin-svgr";
+/// <reference types="vitest" />
+
+export default defineConfig({
+	plugins: [tsconfigPaths(), react(), svgr({})],
+	// ...
+})
+```
