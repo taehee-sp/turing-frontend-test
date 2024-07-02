@@ -243,7 +243,15 @@ export default defineConfig({
 예를 들어 `vitest.config.ts`의 옵션을 예로 들어봅시다. 실습을 하시다가 한 번 `pnpm test:headed`로 브라우저 화면이 눈에 보이게 해둔 뒤에, `css: false`로 css 옵션을 꺼보세요. 무슨 일이 벌어질지 예상이 가시나요?
 
 setupFiles를 지우거나 setupTests.ts 의 경로를 잘못 입력하면 어떤 에러가 나나요?
+
 `import "@testing-library/jest-dom/vitest";` 대신에 `import "@testing-library/jest-dom"`를 import하면 무슨 일이 벌어지나요? (둘의 차이점이 보이시나요?);
 
 
 이런 식으로 에러를 내보면 나중에 셋업을 하다가 실수를 하거나 일부를 빼먹어서 에러 메시지를 보더라도, 쉽게 원인을 파악하고 고칠 수 있습니다. 제가 [에러 찾지 말고 일부러 만드세요!](https://twinstae.github.io/experiment-with-error/)라는 글도 썼으니 한 번 시간이 되실 때 읽어보셔도 좋겠습니다.
+
+### 목차
+
+- [하나. 브라우저 컴포넌트 테스트 환경 셋업하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/cosmos) <- 지금 여기
+- [둘. 목록과 필터 컴포넌트 테스트하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/domains/saas/SaasList)
+- [셋. 폼 컴포넌트 테스트하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/domains/member/MemberCreateForm)
+- [넷. 헤드리스 컴포넌트로 만든 디자인 시스템 테스트하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/common/components/SelectWithComboboxd)
