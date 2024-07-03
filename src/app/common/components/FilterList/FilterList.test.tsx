@@ -9,9 +9,11 @@ describe("FilterList", () => {
 		render(FilterListStories["여러 개의 필터"]);
 
 		await expectTL(queryTL.radio("전체")).toBeChecked();
+		await expectTL(queryTL.radio("결제 내역 있는 SaaS")).not.toBeChecked();
 
 		await queryTL.radio("결제 내역 있는 SaaS").click();
 
+		await expectTL(queryTL.radio("전체")).not.toBeChecked();
 		await expectTL(queryTL.radio("결제 내역 있는 SaaS")).toBeChecked();
 	});
 });
