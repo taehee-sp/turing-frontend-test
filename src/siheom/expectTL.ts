@@ -19,6 +19,7 @@ export function expectTL(tLocator: TLocator): {
 	toHaveValue: (value: string) => Promise<void>;
 	toHaveTextContents: (value: string[]) => Promise<void>;
 	toHaveCount: (count: number) => Promise<void>;
+	toHaveAttribute: (attribute: string, value: unknown) => Promise<void>;
 	toBeFocused: () => Promise<void>;
 	not: {
 		toBeChecked: () => Promise<void>;
@@ -34,6 +35,7 @@ export function expectTL(tLocator: TLocator): {
 		toHaveValue: (value: string) => Promise<void>;
 		toHaveTextContents: (value: string[]) => Promise<void>;
 		toHaveCount: (count: number) => Promise<void>;
+		toHaveAttribute: (attribute: string, value: unknown) => Promise<void>;
 		toBeFocused: () => Promise<void>;
 	};
 } {
@@ -133,6 +135,16 @@ export function expectTL(tLocator: TLocator): {
 			return waitFor(() => {
 				try {
 					expect(tLocator.getAll().map((el) => el.textContent)).toEqual(value);
+				} catch (error) {
+					return swapStackAsync(fakeError, error);
+				}
+			});
+		},
+		async toHaveAttribute(attribute, value) {
+			const fakeError = new Error();
+			return waitFor(async () => {
+				try {
+					expect(tLocator.get()).toHaveAttribute(attribute, value);
 				} catch (error) {
 					return swapStackAsync(fakeError, error);
 				}
@@ -267,6 +279,16 @@ export function expectTL(tLocator: TLocator): {
 						expect(tLocator.getAll().map((el) => el.textContent)).not.toEqual(
 							value,
 						);
+					} catch (error) {
+						return swapStackAsync(fakeError, error);
+					}
+				});
+			},
+			async toHaveAttribute(attribute, value) {
+				const fakeError = new Error();
+				return waitFor(async () => {
+					try {
+						expect(tLocator.get()).not.toHaveAttribute(attribute, value);
 					} catch (error) {
 						return swapStackAsync(fakeError, error);
 					}
