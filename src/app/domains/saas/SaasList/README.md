@@ -424,7 +424,7 @@ import { expectTL } from "@/siheom/expectTL";
 import { queryTL } from "@/siheom/queryTL";
 
 describe("SaasList", () => {
-	test.only("결제 내역 있는 SaaS만 필터할 수 있다", async () => {
+	test("결제 내역 있는 SaaS만 필터할 수 있다", async () => {
 		render(SaasListStories["Saas가 여럿 있음"]);
 
 		// given 최근 결제일 순으로 정렬됨
@@ -469,7 +469,7 @@ import { expectTL } from "@/siheom/expectTL";
 import { queryTL } from "@/siheom/queryTL";
 
 describe("SaasList", () => {
-	test.only("결제 내역 있는 SaaS만 필터할 수 있다", async () => {
+	test("결제 내역 있는 SaaS만 필터할 수 있다", async () => {
 		render(SaasListStories["Saas가 여럿 있음"]);
 
 		// given 전체 SaaS 필터 체크됨
