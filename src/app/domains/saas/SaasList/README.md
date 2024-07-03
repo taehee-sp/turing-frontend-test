@@ -903,6 +903,8 @@ label.filter-button {
 
 이렇게 스타일을 작성하면, 저희는 실제로 input이 기대하는대로 체크되었는지만 테스트하면 됩니다. radio는 같은 name= attribute를 가진 radio 중에 하나만 선택되는 걸 보장해주기 때문에 해당 동작을 매번 테스트하지 않아도 되고요. radiogroup 을 따로 컴포넌트로 만들고, 타입을 통해 name prop이 없으면 type error가 나게 하면 더 믿을만해질 것 입니다.
 
+이러한 최신 CSS의 기능들은 tailwind를 비롯한 다양한 스타일링 라이브러리도 잘 지원합니다. 저도 tailwind로 시작해서, saas, styled-component, pandacss 등 다양한 도구를 사용했는데요. [테일윈드 문서의 Handling Hover, Focus, and Other States 파트](https://tailwindcss.com/docs/hover-focus-and-other-states)처럼 자신이 사용하는 라이브러리 이름 + aria 나 hover, focus, checked 등으로 검색하시면 필요한 지식을 얻으실 수 있을 겁니다.
+
 ### 목차
 
 - [하나. 브라우저 컴포넌트 테스트 환경 셋업하기](https://github.com/taehee-sp/turing-frontend-test/tree/main/src/app/cosmos)
