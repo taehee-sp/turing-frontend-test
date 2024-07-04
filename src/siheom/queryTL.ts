@@ -253,7 +253,13 @@ export function createQueryTL(getBaseElement = () => document.body) {
 
 	return {
 		...query,
-		text: (text: string, exact = false) => {
+		text: (_text: string | RegExp, exact = false) => {
+			
+			const text = _text
+			? exact || _text instanceof RegExp
+				? _text
+				: new RegExp(_text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i")
+			: "";
 			const find = () => base().findByText(text);
 			const result: TLocator = {
 				async click(options) {
