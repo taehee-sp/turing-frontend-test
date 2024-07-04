@@ -1,4 +1,4 @@
-import { css } from '@styled-system/css/css';
+import { css } from "@styled-system/css/css";
 
 export const button = () =>
 	css({
@@ -20,7 +20,8 @@ export const button = () =>
 		},
 	});
 
-	export const dialog = () => css({
+export const dialog = () =>
+	css({
 		background: "white",
 		borderRadius: "16px",
 		boxShadow: "0 12px 40px -4px rgba(25,30,40,.16)",
@@ -37,5 +38,5 @@ export const button = () =>
 		backgroundColor: "white",
 		padding: "1rem",
 		color: "black",
-		maxWidth: '420px'
-	})
+		maxWidth: "420px",
+	});

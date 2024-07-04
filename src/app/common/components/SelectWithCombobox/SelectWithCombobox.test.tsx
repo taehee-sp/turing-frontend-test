@@ -45,7 +45,7 @@ describe("SelectWithCombobox", () => {
 		await queryTL.button("김태희 해제하기").click();
 
 		await expectTL(queryTL.dialog("사용자를 해제할까요?")).toBeVisible();
-		
+
 		expect(getA11ySnapshot(document.body)).toMatchInlineSnapshot(`
 			"button: 김태희 해제하기
 			dialog: 사용자를 해제할까요?

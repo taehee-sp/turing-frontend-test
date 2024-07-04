@@ -66,10 +66,10 @@ export function getA11ySnapshot(element: HTMLElement) {
 	}
 
 	function processElement(el: HTMLElement, depth = 0) {
-		if(el.ariaHidden || el.hidden) return ""
+		if (el.ariaHidden || el.hidden) return "";
 		const role = getAriaRole(el);
 
-		if(role === 'presentation') return ""
+		if (role === "presentation") return "";
 
 		const name = getAccessibleName(el);
 		let result = role

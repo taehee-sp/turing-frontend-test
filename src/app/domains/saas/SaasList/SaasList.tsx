@@ -21,8 +21,8 @@ export const SaasList = ({
 		(saas) => saas.lastPaidAt instanceof Date,
 	);
 
-	if(saasList.length === 0) {
-		return <Link href="/connect">연동하세요</Link>
+	if (saasList.length === 0) {
+		return <Link href="/connect">연동하세요</Link>;
 	}
 
 	return (
