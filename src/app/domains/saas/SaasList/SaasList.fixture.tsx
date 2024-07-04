@@ -25,5 +25,6 @@ export const testSaasList: {
 ];
 
 export default {
+	"Saas가 없음": <SaasList saasList={[]} />,
 	"Saas가 여럿 있음": <SaasList saasList={testSaasList} />,
 };

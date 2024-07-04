@@ -3,6 +3,7 @@ import { VStack } from "@styled-system/jsx";
 import { SaasListItem } from "./SaasListItem";
 import { useState } from "react";
 import { FilterList } from "@/app/common/components/FilterList/FilterList";
+import { Link } from "@/app/routing/Link";
 
 export const SaasList = ({
 	saasList,
@@ -19,6 +20,10 @@ export const SaasList = ({
 	const saasWithPaymentList = saasList.filter(
 		(saas) => saas.lastPaidAt instanceof Date,
 	);
+
+	if(saasList.length === 0) {
+		return <Link href="/connect">연동하세요</Link>
+	}
 
 	return (
 		<VStack>

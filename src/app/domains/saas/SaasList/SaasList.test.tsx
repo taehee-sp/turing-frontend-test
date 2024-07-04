@@ -5,6 +5,11 @@ import { expectTL } from "@/siheom/expectTL";
 import { queryTL } from "@/siheom/queryTL";
 
 describe("SaasList", () => {
+	test("SaaS가 없으면, 연동하세요 링크를 보여준다", async () => {
+		render(SaasListStories["Saas가 없음"]);
+
+		await expectTL(queryTL.link("연동하세요")).toHaveAttribute("href", "/connect")
+	});
 	test("결제 내역 있는 SaaS만 필터할 수 있다", async () => {
 		render(SaasListStories["Saas가 여럿 있음"]);
 
