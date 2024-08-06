@@ -15,12 +15,25 @@
 
 label 안에 input 태그가 있으면 `<label>`을 클릭해도 `<input>` 요소에 포커스가 되어서 접근성 및 사용성이 향상 향상됩니다.
 
-#### 2-2. input 요소에 추가 정보를 제공하기 위한 웹 표준 ARIA 어트리뷰트
+#### 2-2. input 요소에 추가 정보를 제공하기 위한 웹 표준 role과 [ARIA 어트리뷰트](https://developer.mozilla.org/ko/docs/Web/Accessibility/ARIA)
+
+**role**
+
+주로 `div`, `p`와 같이 본래 의미나 역할이 명확하지 않은 요소들에 대해 특정한 역할을 명시적으로 정의하기 위해 사용합니다.
+
+HTML5에서 의미가 명확한 태그들(`input`, `button`, `header` 등)에는 이미 내장된 역할이 있기 때문에 추가적인 역할을 적어줄 때 외에는 `role` 속성을 지정하지 않아도 됩니다.
 
 **aria-label**
 
 - 버튼, 링크, 입력 필드 등 시각적인 라벨이 없거나 충분하지 않은 요소에 사용합니다
 - 스크린 리더는 이 속성을 읽어 사용자가 요소의 목적을 이해하도록 돕습니다.
+
+> **roel과 aria-label의 차이**
+>
+> `aria-*` 속성은 요소의 접근성을 높이기 위해 추가적인 정보를 제공하는 데 사용됩니다.
+> `role` 속성과 `aria-*` 속성은 상호 보완적으로 사용될 수 있지만, 완전히 대체할 수는 없습니다.
+> 따라서 `div`나 `span`과 같은 요소에 특정 역할을 부여하고자 할 때는 `role` 속성을 사용하고,
+> 필요한 추가 정보를 제공하기 위해 `aria-*` 속성을 함께 사용합니다.
 
 ```tsx
 // domains/member/MemberCrateForm/MemberCrateForm.tsx
